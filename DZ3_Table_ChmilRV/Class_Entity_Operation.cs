@@ -16,7 +16,7 @@ namespace DZ3_Table_ChmilRV
          try
          {
             await Program.tableClient.AddEntityAsync(entity);
-            Console.WriteLine($"{entity.RowKey}: Продукт - {entity["Product"]} кол-во - {entity["Quantity"]}  цена ${entity.GetDouble("Price")}.");
+            //Console.WriteLine($"PartitionKey - {entity.PartitionKey}, RowKey - {entity.RowKey} ,Id - {entity.Id}, имя - {entity.Name}, цена - {entity.Price}, заметка - {qEntity.Remark}, примечание - {qEntity.Note}");
          }
          catch
          {

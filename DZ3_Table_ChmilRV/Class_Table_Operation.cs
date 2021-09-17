@@ -27,18 +27,18 @@ namespace DZ3_Table_ChmilRV
       }
 
 
-      public static async Task ListTable()
-      {
-         AsyncPageable<TableItem> queryTableResults = Program.serviceClient.QueryAsync();
+   //   public static async Task ListTable()
+   //   {
+   //      AsyncPageable<TableItem> queryTableResults = Program.serviceClient.QueryAsync();
 
-         Console.WriteLine("\nСписок таблиц в хранилище:");
+   //      Console.WriteLine("\nСписок таблиц в хранилище:");
 
-			await foreach (TableItem table in queryTableResults)
-         {
-            Console.WriteLine(table.Name);
-         }
-         return;
-      }
+			//await foreach (TableItem table in queryTableResults)
+   //      {
+   //         Console.WriteLine(table.Name);
+   //      }
+   //      return;
+   //   }
 
 
       public static async Task DropTable(string tableName)

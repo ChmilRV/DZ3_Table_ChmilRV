@@ -39,7 +39,7 @@ namespace DZ3_Table_ChmilRV
 
          
          // Список таблиц
-         await Class_Table_Operation.ListTable();
+         //await Class_Table_Operation.ListTable();
 
          tableClient = new TableClient(connectionString, tableName);
 

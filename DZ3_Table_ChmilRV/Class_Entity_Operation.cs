@@ -27,15 +27,15 @@ namespace DZ3_Table_ChmilRV
 
       public static void QueryToTableEntity()
       {
-         Pageable<EntityModel> queryResultsFilter = Program.tableClient.Query<EntityModel>(ent => ent.Price >= 6);
+         Pageable<EntityModel> queryResultsFilter = Program.tableClient.Query<EntityModel>(/*ent => ent.Price >= 6*/);
 
-         Console.WriteLine($"\nЗапрос (Price >= 6) вернул {queryResultsFilter.Count()} записей.");
+         //Console.WriteLine($"\nЗапрос (Price >= 6) вернул {queryResultsFilter.Count()} записей.");
          Console.WriteLine("Список выбранных данных:");
 
          // Iterate the <see cref="Pageable"> to access all queried entities.
          foreach (EntityModel qEntity in queryResultsFilter)
          {
-            Console.WriteLine($"Продукт - {qEntity.Product} кол-во - {qEntity.Quantity} цена - {qEntity.Price}");
+            Console.WriteLine($"PartitionKey - {qEntity.PartitionKey}, RowKey - {qEntity.RowKey} ,Id - {qEntity.Id}, имя - {qEntity.Name}, цена - {qEntity.Price}, заметка - {qEntity.Remark}, примечание - {qEntity.Note}");
          }
          return;
       }

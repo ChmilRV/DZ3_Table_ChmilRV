@@ -16,11 +16,11 @@ namespace DZ3_Table_ChmilRV
 		// Get the connection string from app settings
 		static string connectionString = "";
 
-		static string tableName = "";
+		static string tableName = "myazuretablechmilrv";
 
-		static string partitionKey = "partitionKey123";
+		static string partitionKey = "";
 
-		static string rowKey = "rowKey456";
+		static string rowKey = "";
 
 		static async Task Main(string[] args)
 		{
@@ -37,9 +37,7 @@ namespace DZ3_Table_ChmilRV
          // Создание таблиц
          await Class_Table_Operation.CreateTable(tableName);
 
-         await Class_Table_Operation.CreateTable(tableName + "2");
-
-
+         
          // Список таблиц
          await Class_Table_Operation.ListTable();
 
@@ -59,43 +57,31 @@ namespace DZ3_Table_ChmilRV
          Console.WriteLine("\nСписок созданных данных:");
 
          // Создание сущностей
-         var entity = new TableEntity(partitionKey, rowKey)
+         var entity = new TableEntity("1", "1")
                 {
-                    { "Product", "Tee" },
-                    { "Price", 5.00 },
-                    { "Quantity", 21 }
+                    { "Id", 1 },
+                    { "Name", "Вася"  },
+                    { "Price", 21.9 }
                 };
-
          await Class_Entity_Operation.AddTableEntity(entity);
 
-         entity = new TableEntity(partitionKey, rowKey + "7")
+         entity = new TableEntity("1", "2")
                 {
-                    { "Product", "Broad" },
-                    { "Price", 25.00 },
-                    { "Quantity", 1 },
-                    { "Remark1", "No comment" }
+                    { "Id", 2 },
+                    { "Name", "Федя"  },
+                    { "Price", 33.5 },
+                    { "Remark", "Без комментариев" }
                 };
-
          await Class_Entity_Operation.AddTableEntity(entity);
 
-         entity = new TableEntity(partitionKey, rowKey + "8")
+         entity = new TableEntity("2", "3")
                 {
-                    { "Product", "Water" },
-                    { "Price", 7.00 },
-                    { "Quantity", 5 },
-                    { "Note1", "Comment1" },
-                    { "Note2", "Comment2" }
+                    { "Id", 3 },
+                    { "Name", "Михаил"  },
+                    { "Price", 77.22 },
+                    { "Remark", "" },
+                    { "Note", "Это примечание"}
                 };
-
-         await Class_Entity_Operation.AddTableEntity(entity);
-
-         entity = new TableEntity(partitionKey, rowKey + "9")
-                {
-                    { "Name", "Water" },
-                    { "Remark1", "Comment1" },
-                    { "Remark2", "Comment2" }
-                };
-
          await Class_Entity_Operation.AddTableEntity(entity);
 
 
@@ -104,22 +90,22 @@ namespace DZ3_Table_ChmilRV
 
 
          // Удаление сущностей
-         Console.WriteLine("\nУдаление сущностей:");
+         //Console.WriteLine("\nУдаление сущностей:");
 
-         await Class_Entity_Operation.DeleteTableEntity(partitionKey, rowKey);
+         //await Class_Entity_Operation.DeleteTableEntity(partitionKey, rowKey);
 
-         await Class_Entity_Operation.DeleteTableEntity(partitionKey, rowKey + "7");
+         //await Class_Entity_Operation.DeleteTableEntity(partitionKey, rowKey + "7");
 
-         await Class_Entity_Operation.DeleteTableEntity(partitionKey, rowKey + "8");
+         //await Class_Entity_Operation.DeleteTableEntity(partitionKey, rowKey + "8");
 
-         await Class_Entity_Operation.DeleteTableEntity(partitionKey, rowKey + "9");
+         //await Class_Entity_Operation.DeleteTableEntity(partitionKey, rowKey + "9");
 
 
          // Удаление таблиц
-         Console.WriteLine("\nУдаление таблиц:");
+         //Console.WriteLine("\nУдаление таблиц:");
 
-         await Class_Table_Operation.DropTable(tableName);
-         await Class_Table_Operation.DropTable(tableName + "2");
+         //await Class_Table_Operation.DropTable(tableName);
+         //await Class_Table_Operation.DropTable(tableName + "2");
 
 
          Console.ReadKey();

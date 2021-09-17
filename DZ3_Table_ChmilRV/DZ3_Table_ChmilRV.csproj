@@ -83,6 +83,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Class_Entity_Operation.cs" />
+    <Compile Include="Class_Table_Operation.cs" />
+    <Compile Include="EntityModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
